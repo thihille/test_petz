@@ -1,0 +1,31 @@
+{
+  "name": "test_petz",
+  "version": "1.0.0",
+  "description": "Teste de desenvolvimento Front-End com ReactJS, NextJS e ApiRest",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thihille/test_petz.git"
+  },
+  "author": "Thiago Hille",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thihille/test_petz/issues"
+  },
+  "homepage": "https://github.com/thihille/test_petz#readme",
+  "dependencies": {
+    "isomorphic-fetch": "^2.2.1",
+    "next": "^9.3.6",
+    "next-images": "^1.4.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-responsive-carousel": "^3.2.5",
+    "styled-components": "^5.1.0"
+  }
+}
