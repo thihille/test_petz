@@ -1,38 +1,36 @@
 import styled from 'styled-components';
 
-export const Cards = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  width: 100%;
-`
-
-export const CardList = styled.li`
+export const Card = styled.div`
   display:flex;
   flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-end;
-  width: calc(22% - 10px);
+  justify-content: space-between;
   margin: 5px;
   min-height: 50px;
   border-radius: 7px;
   box-shadow: 0 0 5px rgba(0,0,0,.3);
   overflow: hidden;
-  
+  width: 100%;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
   p {
-    font-family: Arial, Helvetica, sans-serif;
     font-size: .8em;
+    font-weight: 100;
     text-align: center;
     display: block;
     overflow: hidden;
-    width: calc(100% - 14px);
+    width: calc(100% - 24px);
     margin: 0 auto;
     padding: 5px 7px;
-    background-color: #f0feff;
     white-space: nowrap;
     text-overflow: ellipsis;
+
+    @media (max-width: 768px) {
+      max-width: 150px;
+    }
   }
-`
+`;

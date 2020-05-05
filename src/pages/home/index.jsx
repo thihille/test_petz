@@ -1,40 +1,18 @@
-import React, { Component } from 'react';
-import { getAPI } from "../../services/api";
-import HeaderComponent from '../../components/header';
-import { CardList, Cards } from './style';
+import React from 'react';
+import Layout from '../../components/layout';
+import List from '../../components/list';
+import Slider from '../../components/slider';
 
-export default class Home extends Component {
+export default () => {
 
-  state = {
-    posts: []
-  }
-
-  componentWillMount(){
-    getAPI('/posts').then(data => {
-      this.setState({
-        posts: data.items
-      });
-    });
-    
-  }
-
-  render() {
-    return (
-      <>
-        <HeaderComponent />
-        <Cards>
-          {this.state.posts && this.state.posts.map(post => (
-            <CardList>
-              <p>
-                {post.title}
-              </p>
-            </CardList>
-          ))}
-        </Cards>
-      </>
-    );
-  }
+  return (
+    <Layout>
+      <Slider />
+      <List />
+    </Layout>
+  );
 }
+
 
 
 
