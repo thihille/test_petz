@@ -1,4 +1,5 @@
 import React from 'react';
+import fetch from "isomorphic-fetch";
 
 import Layout from '../../components/layout';
 import Breadcrumb from '../../components/breadcrumb';
@@ -11,9 +12,10 @@ import iconInstagram from '../../assets/icon-instagram.png';
 import { ShareRule, ContentWrapper, ImageDetails, Description, DescriptionGeneric } from '../../styles/detalhes.js';
 
 const PageDetalhes = ({ post }) => {
+  
   return (
     <Layout title="Detalhes - Petz - Seu pet center de estimação" disableSearch={true}>
-      <Breadcrumb items={['Home','Details']} />
+      <Breadcrumb items={['Home','Detalhes']} />
       <ContentWrapper>
         <h2>Detalhes do item {post.id}</h2>
         <ShareRule>
