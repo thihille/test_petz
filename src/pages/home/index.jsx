@@ -1,57 +1,49 @@
-import React from 'react';
+import React, {useState} from 'react';
+import fetch from "isomorphic-fetch";
+
 import Layout from '../../components/layout';
-import List from '../../components/list';
+import Posts from '../../components/posts';
 import Slider from '../../components/slider';
+import PetzLoading from '../../components/loading';
 
-export default () => {
+const Home = ({
+  posts
+}) => {
+  const [filterSearch, setFilterSearch] = useState('');
+  const handleFilter = (value) => {
+    setFilterSearch(value);
+  }
 
+  const results = !filterSearch ? posts : posts.filter(post => post.title.toLowerCase().includes(filterSearch.toLowerCase()));
+  
   return (
-    <Layout>
-      <Slider />
-      <List />
+    <Layout 
+      filterSearch={filterSearch} 
+      setFilterSearch={handleFilter}
+    >
+      {results ? (
+        <>
+          <Slider />
+          <Posts posts={results}  />
+        </>
+      ):(
+        <PetzLoading />
+      )}
     </Layout>
   );
 }
+Home.defaultProps = {
+  posts: []
+}
+Home.getInitialProps = async () => {
+  const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+  const data = await response.json();
 
+  data.map((post,i) => post.image = `http://placeimg.com/200/100/animals?i=${i}`);
+  
+  return {
+    posts: data
+  };
+}
 
-
-
-
-
-
-// import React from 'react';
-// import "isomorphic-fetch";
-
-// const Home = ({
-//   items
-// }) => {
-//   function teste(){
-//     alert('meu teste');
-//   }
-//   return (
-//     <div>
-//       <h1 onClick={() => teste()}>Hello Petz</h1>
-//       {
-//         items.map(item => (
-//           <div key={item.id}>
-//             <h1>{item.title}</h1>
-//             <p>
-//               {item.body}
-//             </p>
-//           </div>
-//         ))
-//       }
-//     </div>
-//   )
-// }
-
-// Home.getInitialProps = async () => {
-//   const response = await fetch('https://jsonplaceholder.typicode.com/posts');
-//   const items = await response.json();
-
-//   return {
-//     items
-//   };
-// }
-
-// export default Home;
+export default Home;

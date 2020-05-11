@@ -1,8 +1,13 @@
 import HeaderComponent from '../header';
 import Head from 'next/head';
-import { GlobalStyle } from '../../pages/styles';
 
-const Layout = ({title = null, children}) => {
+const Layout = ({
+  title = null,
+  disableSearch = false,
+  filterSearch,
+  setFilterSearch,
+  children
+}) => {
   const titlePage = title ? title : 'Petz - Seu pet center de estimação';
   return (
     <>
@@ -10,9 +15,15 @@ const Layout = ({title = null, children}) => {
         <title>{titlePage}</title>
         <meta property="og:title" content={titlePage} key="title" />
       </Head>
-      <GlobalStyle />
-      <HeaderComponent />
+      <HeaderComponent disableSearch={disableSearch} filterInput={filterSearch} setFilterInput={setFilterSearch} />
       {children}
+      <style jsx global>{`
+        body {
+          margin: 0;
+          padding: 0;
+          font-family:'Roboto', sans-serif;
+        }
+      `}</style>
     </>
   )
 };

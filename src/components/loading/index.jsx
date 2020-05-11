@@ -1,13 +1,13 @@
 import React from 'react';
 import Lottie from 'react-lottie';
-import myL from '../../assets/loading.json';
+import dogLoading from '../../assets/dog-loading.json';
 
 export default function PetzLoading() {
   
   const defaultOptions = {
     loop: true,
     autoplay: true, 
-    animationData: myL,
+    animationData: dogLoading,
     rendererSettings: {
       preserveAspectRatio: 'xMidYMid slice'
     }
@@ -17,19 +17,22 @@ export default function PetzLoading() {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'flex-end',
+    alignItems: 'center',
     width: '100%',
-    height: 'calc(100% - 108px)',
+    height: '100%',
     position: 'fixed',
-    right: 0
+    top:0,
+    right:0,
+    bottom:0,
+    left:0
     }}>
-      <div style={{
-        margin: '0 -25px 0 0'
-      }}>
-        <Lottie options={defaultOptions} height={200} width={170} />
+      <div>
+        <Lottie options={defaultOptions} width="200" height="200" />
       </div>
       <h3 style={{
-        margin: '0 10px 0 0'
+        margin: '-30px 0 0 0',
+        padding: '0',
+        color: '#999'
       }}>Carregando...</h3>
   </div>
 }

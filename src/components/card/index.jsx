@@ -1,15 +1,26 @@
 import React from 'react';
-import {Card } from './style';
-// import { Container } from './styles';
+import Link from 'next/Link';
 
-export default function CardItem(props) {
-  const [didLoad, setLoad] = React.useState(false);
-  const style = didLoad ? {} : {visibility: 'hidden'};
+import {Item, CardImage, CardTitle, CardDescription } from './style';
 
+const Card = ({data}) => {
+  const { id, image, title, body} = data
   return (
-    <Card>
-      <img style={style} src={`https://loremflickr.com/200/100/pet?random=${props.id}`} onLoad={() => setLoad(true)} />
-      <p>{props.title}</p>
-    </Card>
-  );
+    <>
+      <Link href={`/details?idpost=${id}`} as={`/detalhes/${id}`}>
+        <Item>
+          <CardImage>
+            <img src={image} />
+          </CardImage>
+          <CardTitle>
+            {title}
+          </CardTitle>
+          <CardDescription>
+            {body}
+          </CardDescription>
+        </Item>
+      </Link>
+    </>
+  )
 }
+export default Card;
