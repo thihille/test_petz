@@ -45,8 +45,8 @@ const PageDetalhes = ({ post }) => {
   )
 };
 PageDetalhes.getInitialProps = async ({query}) => {
-  const { idpost } = query;
-  const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${idpost}`);
+  const { id } = query;
+  const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
   const post = await response.json();
   
   return {
