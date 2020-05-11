@@ -7,7 +7,7 @@ const Card = ({data}) => {
   const { id, image, title, body} = data
   return (
     <>
-      <Link href={`/details?idpost=${id}`} as={`/detalhes/${id}`}>
+      <Link href={`detalhes?idpost=${id}`} as={`/detalhes/${id}`}>
         <Item>
           <CardImage>
             <img src={image} />
