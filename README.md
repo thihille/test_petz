@@ -1,4 +1,4 @@
-Desenvolvimento de um  [Create React App](https://github.com/facebook/create-react-app).
+Desenvolvimento de website (teste) para Empresa Petz
 
 ## Petz - Desenvolvimento Front-End
 
